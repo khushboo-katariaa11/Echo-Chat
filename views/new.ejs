@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Chat - EchoChat</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2950/2950761.png">
+    <style>
+        body {
+            background: linear-gradient(120deg, #F8F3D9, #EBE5C2);
+            color: #504B38;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .new-chat-container {
+            background: #FFFFFF;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.12);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+        .new-chat-container h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 2px solid #B9B28A;
+            border-radius: 8px;
+            outline: none;
+            margin-bottom: 12px;
+            transition: border-color 0.3s ease-in-out;
+        }
+        .input-field:focus {
+            border-color: #A69F7A;
+        }
+        .submit-btn {
+            margin-top: 15px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            background: #B9B28A;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out, transform 0.2s;
+        }
+        .submit-btn:hover {
+            background: #A69F7A;
+            transform: scale(1.05);
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            background: #EBE5C2;
+            border-top: 3px solid #B9B28A;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="new-chat-container">
+        <h1>Start a New Chat</h1>
+
+        <form action="/chats" method="post">
+            <input type="text" name="to" class="input-field" placeholder="To" required>
+            <input type="text" name="message" class="input-field" placeholder="Message" required>
+            <input type="text" name="from" class="input-field" placeholder="From" required>
+            <input type="datetime-local" name="date" class="input-field" required>
+
+            <button class="submit-btn">Send Message</button>
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2025 EchoChat. All rights reserved.
+    </footer>
+
+</body>
+</html>

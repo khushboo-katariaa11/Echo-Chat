@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EchoChat - Elevate Your Conversations</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2950/2950761.png">
+    <style>
+        body {
+            background: linear-gradient(120deg, #F8F3D9, #EBE5C2);
+            color: #504B38;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            flex: 1;
+        }
+        .brand-title {
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            color: #504B38;
+            text-transform: uppercase;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .chat-card {
+            background: #FFFFFF;
+            padding: 18px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.12);
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-left: 8px solid #B9B28A;
+        }
+        .chat-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.18);
+        }
+        .chat-card .message {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        .chat-card .meta {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: #6D6650;
+        }
+        .chat-card .date {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            text-align: right;
+        }
+        .chat-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .edit-btn, .delete-btn {
+            border: none;
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+        }
+        .edit-btn {
+            background: #504B38;
+            color: white;
+        }
+        .edit-btn:hover {
+            background: #6D6650;
+        }
+        .delete-btn {
+            background: #D9534F;
+            color: white;
+        }
+        .delete-btn:hover {
+            background: #B8413D;
+        }
+        .add-chat-btn {
+            font-size: 1rem;
+            padding: 12px 28px;
+            background: #B9B28A;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s ease-in-out;
+            display: block;
+            margin: 0 auto;
+        }
+        .add-chat-btn:hover {
+            background: #55513a;
+            color: white;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            background: #EBE5C2;
+            border-top: 3px solid #B9B28A;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="brand-title">EchoChat</h1>
+        <p class="tagline">Elevate Your Conversations</p>
+
+        <div class="text-center">
+            <form action="/chats/new" method="get">
+                <button class="add-chat-btn">➕ Start a New Chat</button>
+            </form>
+        </div>
+
+        <div class="chat-container">
+            <% for(let d of data){ %>
+                <div class="chat-card">
+                    <p class="meta">To: <%= d.to %> | From: <%= d.from %></p>
+                    <p class="message">"<%= d.message %>"</p>
+                    <p class="date"><%= new Date(d.date).toLocaleString() %></p>
+                    <div class="chat-actions">
+                        <a href="/chats/<%= d._id %>/edit" class="edit-btn">✏️ Edit</a>
+                        <form action="/chats/<%= d._id %>?_method=DELETE" method="post">
+                            <button class="delete-btn">🗑️ Delete</button>
+                        </form>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 EchoChat. All rights reserved.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
