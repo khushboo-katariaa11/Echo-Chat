@@ -18,29 +18,7 @@ EchoChat is a simple yet elegant chat application that enables users to send and
 - **Frontend:** EJS, Bootstrap, Custom CSS
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB (Mongoose ORM)
-### Screenshots
-📷
-![EchoChat UI](https://your-image-url.com/screenshot.png)
-## Installation
 
-Follow these steps to set up EchoChat locally:
-
-### 1️⃣ Clone the Repository
-
-```sh
-git clone https://github.com/yourusername/EchoChat.git
-cd EchoChat
-### 2️⃣ Install Dependencies
-npm install
-###3️⃣ Set Up MongoDB
-Make sure you have MongoDB installed and running on mongodb://127.0.0.1:27017/chatapp.
-
-###4️⃣ Run the Application
-```sh
-nodemon index.js
-###5️⃣ Open in Browser
-Visit http://localhost:3030/chats
- to start using EchoChat!
 
 
 
